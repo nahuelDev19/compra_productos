@@ -1,6 +1,8 @@
 package com.productos.compra_productos.service.implementservices;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import com.productos.compra_productos.Entitys.UserEntity;
 import com.productos.compra_productos.dtos.dto_request.UserRequest;
 import com.productos.compra_productos.dtos.dto_response.UserResponse;
 import com.productos.compra_productos.service.services.UserService;
@@ -11,8 +13,8 @@ public class UserImplementService implements UserService{
 
     @Override
     public UserResponse create(UserRequest rq) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'create'");
+        UserEntity user= new UserEntity();
+        return this.convertidorResponse(user);
     }
 
     @Override
@@ -31,6 +33,13 @@ public class UserImplementService implements UserService{
     public void delete(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    }
+
+
+    private UserResponse convertidorResponse(UserEntity entity){
+        UserResponse response= new UserResponse();
+        BeanUtils.copyProperties(entity, response);
+        return response;
     }
 
 }
