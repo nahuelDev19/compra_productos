@@ -1,6 +1,7 @@
 package com.productos.compra_productos.Entitys;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -43,13 +44,9 @@ import lombok.NoArgsConstructor;
 @Entity
 public class TicketEntity {
 
-    /**
-     * Identificador único del ticket. Se genera automáticamente.
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     /**
      * Usuario al que pertenece el ticket.
      * La relación es muchos a uno.
@@ -58,14 +55,8 @@ public class TicketEntity {
     @JoinColumn(name = "user_id")
     private UserEntity userEntity;
 
-    /**
-     * Fecha de creación del ticket.
-     */
+    
     private LocalDate date;
-
-    /**
-     * Total del ticket.
-     */
     private Integer total;
 
     /**
