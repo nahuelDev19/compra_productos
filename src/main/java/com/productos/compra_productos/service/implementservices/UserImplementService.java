@@ -80,12 +80,12 @@ public class UserImplementService implements UserService{
         user.setPassword(rq.getPassword());
         user.setAge(rq.getAge());
         Set<RoleEntity> roles= new HashSet<>();
-      /*   if (rq.getRoles()!=null) {
-            for(RoleRequest rol: rq.getRoles()){
-                Optional<RoleEntity> rolEnty= roleRepository.findByRoles(rol.getRole());
-                roles.add(rolEnty.get());
-            }
-        } *//*  */
+        Optional<RoleEntity> roleOptional= roleRepository.findByRoles("ROLE_USER");
+        roleOptional.ifPresent(roles::add);
+        if (Boolean.TRUE.equals(rq.getAdmin())) {
+            Optional<RoleEntity> roleOptionalAdmin= roleRepository.findByRoles("ROLE_ADMIN");
+            roleOptionalAdmin.ifPresent(roles::add);
+        }
         user.setRoles(roles);
         user.setAdmin(rq.getAdmin());
 
@@ -111,7 +111,6 @@ public class UserImplementService implements UserService{
         UserResponse response = new UserResponse();
         BeanUtils.copyProperties(entity, response);
     
-        //response.setAdmin(entity.getAdmin());
         // Mapeo de roles de UserEntity a RoleResponse
         response.setRoles(entity.getRoles().stream()
             .map(role -> {
@@ -121,8 +120,12 @@ public class UserImplementService implements UserService{
             })
             .collect(Collectors.toSet()));
     
+        // Asigna el valor del campo Admin si está presente
+        response.setAdmin(entity.getAdmin());
+    
         return response;
     }
+    
     
 
 
