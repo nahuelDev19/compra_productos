@@ -10,14 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserRequest {
+public class RoleRequest {
 
     private Long id;
-    private String name;
-    private String lastname;
-    private Integer age;
-    private String email;
-    private String password;
-    private Boolean admin;
+    private String role;
+    
 
 }

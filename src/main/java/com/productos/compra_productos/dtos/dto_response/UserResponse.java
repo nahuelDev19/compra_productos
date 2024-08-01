@@ -2,7 +2,6 @@ package com.productos.compra_productos.dtos.dto_response;
 
 import java.util.Set;
 
-import com.productos.compra_productos.Entitys.RoleEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +20,8 @@ public class UserResponse {
     private Integer age;
     private String email;
     private String password;
-    private Set<RoleEntity> roles;
+    private Set<RoleResponse> roles;
+
+    private Boolean admin;
 
 }

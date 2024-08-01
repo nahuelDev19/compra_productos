@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -74,16 +75,20 @@ public class UserEntity {
 
     /**
      * Roles del usuario.
-     * La relación es muchos a muchos y se carga de forma ansiosa (EAGER).
      * 
      * La tabla intermedia 'usuario_roles' contiene las uniones entre usuarios y roles.
      * - joinColumns: Define la columna en la tabla intermedia que se une con la entidad actual (UserEntity).
      * - inverseJoinColumns: Define la columna en la tabla intermedia que se une con la otra entidad (RoleEntity).
      */
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "usuario_roles",
                joinColumns = @JoinColumn(name = "usuario_id"),
                inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<RoleEntity> roles;
+
+    // no es un atributo que este mapeado en la tabla
+    @Transient
+    private Boolean admin;
+
 
 }
