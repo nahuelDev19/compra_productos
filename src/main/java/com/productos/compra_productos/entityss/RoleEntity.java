@@ -1,4 +1,4 @@
-package com.productos.compra_productos.Entitys;
+package com.productos.compra_productos.entityss;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.productos.compra_productos.Entitys.RoleEntity;
+import com.productos.compra_productos.entityss.RoleEntity;
 
 
 public interface RoleRepository extends JpaRepository<RoleEntity,Long>{

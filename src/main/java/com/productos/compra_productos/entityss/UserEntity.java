@@ -1,4 +1,4 @@
-package com.productos.compra_productos.Entitys;
+package com.productos.compra_productos.entityss;
 
 import java.util.Set;
 

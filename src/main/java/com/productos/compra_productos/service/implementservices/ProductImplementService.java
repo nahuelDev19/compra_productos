@@ -3,9 +3,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.productos.compra_productos.Entitys.ProducEntity;
 import com.productos.compra_productos.dtos.dto_request.ProductRequest;
 import com.productos.compra_productos.dtos.dto_response.ProductResponse;
+import com.productos.compra_productos.entityss.ProducEntity;
 import com.productos.compra_productos.repository.ProductRepository;
 import com.productos.compra_productos.service.services.ProductService;
 

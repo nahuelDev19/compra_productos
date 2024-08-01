@@ -8,11 +8,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.productos.compra_productos.Entitys.RoleEntity;
-import com.productos.compra_productos.Entitys.UserEntity;
 import com.productos.compra_productos.dtos.dto_request.UserRequest;
 import com.productos.compra_productos.dtos.dto_response.RoleResponse;
 import com.productos.compra_productos.dtos.dto_response.UserResponse;
+import com.productos.compra_productos.entityss.RoleEntity;
+import com.productos.compra_productos.entityss.UserEntity;
 import com.productos.compra_productos.repository.RoleRepository;
 import com.productos.compra_productos.repository.UserRepository;
 import com.productos.compra_productos.service.services.UserService;

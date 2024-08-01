@@ -1,7 +1,6 @@
-package com.productos.compra_productos.Entitys;
+package com.productos.compra_productos.entityss;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
