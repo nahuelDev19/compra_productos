@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.productos.compra_productos.Entitys.RoleEntity;
 import com.productos.compra_productos.Entitys.UserEntity;
-import com.productos.compra_productos.dtos.dto_request.RoleRequest;
 import com.productos.compra_productos.dtos.dto_request.UserRequest;
 import com.productos.compra_productos.dtos.dto_response.RoleResponse;
 import com.productos.compra_productos.dtos.dto_response.UserResponse;
@@ -26,29 +25,7 @@ public class UserImplementService implements UserService{
     @Autowired
     private RoleRepository roleRepository;
 
-    // v1 problemas para asignar usuario con el is admin 
-    //retorna null el user
-    /* @Override
-    public UserResponse create(UserRequest rq) {
-        UserEntity user= new UserEntity();
-        user.setName(rq.getName());
-        user.setLastname(rq.getLastname());
-        user.setEmail(rq.getEmail());
-        user.setPassword(rq.getPassword());
-        user.setAge(rq.getAge());
-
-        //asignando rol
-        Optional<RoleEntity> roleOptional= roleRepository.findByRoles("ROLE_USER");
-        Set<RoleEntity> roles= new HashSet<>();
-        roleOptional.ifPresent(roles::add);
-        if (rq.getIsAdmin()) {
-            Optional<RoleEntity> roleOptionalAdmin= roleRepository.findByRoles("ROLE_ADMIN");
-            roleOptionalAdmin.ifPresent(roles::add);
-        }
-        user.setRoles(roles);
-        userRepository.save(user);
-        return this.convertidorResponse(user);
-    } */
+    
 
     @Override
     public UserResponse create(UserRequest rq) {
