@@ -53,8 +53,6 @@ public class TicketEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity userEntity;
-
-    
     private LocalDate date;
     private Integer total;
 
@@ -72,4 +70,5 @@ public class TicketEntity {
                inverseJoinColumns = @JoinColumn(name = "produc_id"))
     private Set<ProducEntity> products;
 
+    
 }

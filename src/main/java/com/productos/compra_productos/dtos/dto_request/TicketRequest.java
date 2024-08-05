@@ -1,6 +1,5 @@
 package com.productos.compra_productos.dtos.dto_request;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 
@@ -18,10 +17,9 @@ public class TicketRequest {
 
 
     private Long id;
-    private LocalDate date;
-    private UserRequest userRequest;
-    private Integer total;
+    private UserRequest userEntity;
     private Set<ProductRequest> products;
+    private Integer total;
 
 
 }

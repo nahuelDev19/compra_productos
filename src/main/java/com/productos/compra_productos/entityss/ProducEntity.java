@@ -38,19 +38,9 @@ public class ProducEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    /**
-     * Nombre del producto.
-     */
     private String name;
-
-    /**
-     * Descripción del producto.
-     */
     private String description;
-
-    /**
-     * Precio del producto.
-     */
     private Integer price;
+
+    
 }
