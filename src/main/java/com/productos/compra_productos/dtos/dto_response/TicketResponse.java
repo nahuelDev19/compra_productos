@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class TicketResponse {
 
+        private Long id;
         private TicketUserResponse user;
         private LocalDate date;
         private Set<ProductResponse> products;
