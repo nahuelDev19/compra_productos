@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.productos.compra_productos.dtos.dto_request.UserRequest;
@@ -24,6 +25,8 @@ public class UserImplementService implements UserService{
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepository;
+    @Autowired 
+    private PasswordEncoder passwordEncoder;
 
     
 
@@ -33,7 +36,7 @@ public class UserImplementService implements UserService{
         user.setName(rq.getName());
         user.setLastname(rq.getLastname());
         user.setEmail(rq.getEmail());
-        user.setPassword(rq.getPassword());
+        user.setPassword(passwordEncoder.encode(rq.getPassword()));
         user.setAge(rq.getAge());
         user.setAdmin(rq.getAdmin());
         Set<RoleEntity> roles= new HashSet<>();
@@ -54,7 +57,7 @@ public class UserImplementService implements UserService{
         user.setName(rq.getName());
         user.setLastname(rq.getLastname());
         user.setEmail(rq.getEmail());
-        user.setPassword(rq.getPassword());
+        user.setPassword(passwordEncoder.encode(rq.getPassword()));
         user.setAge(rq.getAge());
         Set<RoleEntity> roles= new HashSet<>();
         Optional<RoleEntity> roleOptional= roleRepository.findByRoles("ROLE_USER");
@@ -101,6 +104,11 @@ public class UserImplementService implements UserService{
         response.setAdmin(entity.getAdmin());
     
         return response;
+    }
+
+    @Override
+    public boolean existsByName(String username) {
+        return userRepository.existsByName(username);
     }
     
     

@@ -5,4 +5,8 @@ import com.productos.compra_productos.dtos.dto_response.UserResponse;
 
 public interface UserService extends CrudService<UserRequest, UserResponse, Long>{
 
+
+    boolean existsByName(String string);
+
+
 }

@@ -6,10 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.productos.compra_productos.entityss.UserEntity;
 
+
 public interface UserRepository extends JpaRepository<UserEntity,Long>{
 
 
     Optional<UserEntity> findFirstByNameContaining(String name);
-
+    Optional<UserEntity> findByName(String name);
+    boolean existsByName(String string);
 
 }
